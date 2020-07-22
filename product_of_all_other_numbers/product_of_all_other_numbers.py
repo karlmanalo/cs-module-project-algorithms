@@ -2,10 +2,22 @@
 Input: a List of integers
 Returns: a List of integers
 '''
-def product_of_all_other_numbers(arr):
-    # Your code here
+import operator
+from functools import reduce
 
-    pass
+def multiply_list(arr):
+    result = 1
+    for i in arr:
+        result *= i
+    return result
+
+def product_of_all_other_numbers(arr):
+    product_list = []
+    for i in arr:
+        temp = arr.copy()
+        temp.remove(i)
+        product_list.append(multiply_list(temp))
+    return product_list
 
 
 if __name__ == '__main__':
